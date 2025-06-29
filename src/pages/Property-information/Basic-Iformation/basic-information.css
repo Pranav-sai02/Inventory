@@ -1,0 +1,88 @@
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #555;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #1e40af;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.inline-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+button[type='submit'] {
+  background-color: #ff5a1f;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #e24d17;
+}

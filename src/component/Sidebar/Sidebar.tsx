@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import 'primeicons/primeicons.css';
 import { Link, useLocation } from 'react-router-dom';
-import './Sidebar.css';
+import './sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuilding, faChartBar, faHome } from '@fortawesome/free-solid-svg-icons';
 
