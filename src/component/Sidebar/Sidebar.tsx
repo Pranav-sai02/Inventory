@@ -32,6 +32,12 @@ const Sidebars: React.FC = () => {
               <span>Property Information</span>
             </Link>
           </li>
+          <li>
+            <Link to="/basic-information" className="sidebar-link">
+              <FontAwesomeIcon icon={faBuilding} className="me-2" />
+              <span>Basic Information</span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

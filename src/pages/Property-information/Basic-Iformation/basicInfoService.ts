@@ -1,6 +1,6 @@
 // src/services/basicInfoService.ts
 import axios from 'axios';
-import { BasicInfo } from '../../../component/types/Inventory';
+import { BasicInfo } from './Inventory.model';
 
 const API_BASE = 'http://localhost:8080/api/basic-info';
 
@@ -23,3 +23,6 @@ export const updateBasicInfo = (id: number, data: BasicInfo) =>
 // DELETE: Remove a record by ID
 export const deleteBasicInfo = (id: number) =>
   axios.delete<void>(`${API_BASE}/delete/${id}`);
+
+
+export {};

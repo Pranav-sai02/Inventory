@@ -12,7 +12,6 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/dashboard" element={<Dashboard />} />
-      {/* <Route path="/home" element={<Home />} /> */}
       <Route path="/property-information" element={<PropertyInformation />} />
       <Route path="/basic-information" element={<BasicInformation />} />
       

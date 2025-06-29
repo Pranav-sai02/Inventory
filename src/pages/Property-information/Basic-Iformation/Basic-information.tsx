@@ -1,38 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import './basic-information.css';
 import { getBasicInfoById, updateBasicInfo } from './basicInfoService';
-import { BasicInfo } from '../../../component/types/Inventory';
-
+import { BasicInfo } from './Inventory.model';
+import { useParams } from 'react-router-dom';
 
 const BasicInformation = () => {
   const years = [2022, 2023, 2024, 2025];
-  const [formData, setFormData] = useState<BasicInfo>({});
+  const [formData, setFormData] = useState<BasicInfo | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const id = 1;
 
   useEffect(() => {
-    getBasicInfoById(2)
-      .then((res) => setFormData(res.data))
-      .catch((err) => console.error('Error fetching data:', err));
-  }, []);
+    if (id) {
+      getBasicInfoById(Number(id))
+        .then((res: { data: BasicInfo }) => setFormData(res.data))
+        .catch((err) => console.error('Error fetching data:', err));
+    }
+  }, [id]);
+
+  if (!formData) return <div>Loading...</div>;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
+    let newValue: string | boolean = value;
 
-    // Explicitly check for checkbox
-    const newValue = type === 'checkbox'
-      ? (e.target as HTMLInputElement).checked
-      : value;
+    if (type === 'checkbox') {
+      newValue = (e.target as HTMLInputElement).checked;
+    }
 
-    setFormData({ ...formData, [name]: newValue });
+    setFormData(prev => prev ? { ...prev, [name]: newValue } : prev);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData?.id) {
+      alert('Missing ID to update.');
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      await updateBasicInfo(formData.id!, formData);
+      await updateBasicInfo(formData.id, formData);
       alert('Successfully updated!');
     } catch (err) {
       console.error('Update failed:', err);
@@ -40,8 +50,6 @@ const BasicInformation = () => {
     }
     setIsSubmitting(false);
   };
-
-  if (!formData) return <div>Loading...</div>;
 
   return (
     <div className="container">
