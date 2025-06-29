@@ -4,8 +4,14 @@ import './Header.css';
 const Header: React.FC = () => {
   return (
     <header className="app-header">
-      <h2>Hotel Connect</h2>
-    </header>
+  <div className="logo-container">
+    <img
+      src="https://avoota.com/3ec4229deba2cb3d6d94311608defbc7.png"
+      alt="Avoota Logo"
+      className="logo-icon"
+    />
+  </div>
+</header>
   );
 };
 
